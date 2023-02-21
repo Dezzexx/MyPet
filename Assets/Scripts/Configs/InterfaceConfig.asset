@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 059dd4d3280637845a796d18b85fc112, type: 3}
+  m_Name: InterfaceConfig
+  m_EditorClassIdentifier: 
+  Barricade: {fileID: 1066064158822786981, guid: 678cbb61fda710940abf931189727963,
+    type: 3}
+  BarricadeSprite: {fileID: 21300000, guid: 3200a8b5313274a6e85c892367e15425, type: 3}
+  BarricadeLifeTime: 25
+  BombSprite: {fileID: 21300000, guid: a1d247e4109aa46acaf200aea98f96af, type: 3}
+  Bomb: {fileID: 2758772324302399605, guid: 414e0130078600e4b854664b4f163ac9, type: 3}
+  BiomEmptySprite: {fileID: 21300000, guid: 5fcb6fd4bccf7604e9a9fb4b63c86400, type: 3}
+  BiomFilledSprite: {fileID: 21300000, guid: b6528f827af5e9c468bae99a6a0a493d, type: 3}
+  BaseSprites: []
+  ItemImageGo: {fileID: 6068918162006885066, guid: 50d3bfb3790a04543a4c25d24a2bcbe1,
+    type: 3}
+  ExplosionParticle: {fileID: 130848, guid: 337009f780b249c40bc9620b1d7875a9, type: 3}

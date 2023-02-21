@@ -1,0 +1,150 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abc51251204d8274a91dd2c754bcdf88, type: 3}
+  m_Name: LevelsConfig
+  m_EditorClassIdentifier: 
+  LevelParameterConfig:
+  - GameGridSize: {x: 1, y: 12}
+    CurrencyValuePerLevel: 80
+    CurrencyDropFromUnitPerLvl: 50
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 20, y: 30}
+    AllUnitsOnLevel: 3
+    FriendlySpawnCooldown: 4
+    EnemySpawnCooldown: 3
+    UnitLvl: 64000000000000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 00000000
+  - GameGridSize: {x: 2, y: 12}
+    CurrencyValuePerLevel: 80
+    CurrencyDropFromUnitPerLvl: 110
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 5, y: 7}
+    AllUnitsOnLevel: 15
+    FriendlySpawnCooldown: 4
+    EnemySpawnCooldown: 3
+    UnitLvl: 5a0000000a00000000000000000000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 0000000001000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 100
+    CurrencyDropFromUnitPerLvl: 150
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 3, y: 5}
+    AllUnitsOnLevel: 20
+    FriendlySpawnCooldown: 4
+    EnemySpawnCooldown: 3
+    UnitLvl: 280000003c00000000000000000000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 0000000001000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 150
+    CurrencyDropFromUnitPerLvl: 130
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 2, y: 5}
+    AllUnitsOnLevel: 23
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 4
+    UnitLvl: 3c0000001400000014000000000000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 000000000100000002000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 250
+    CurrencyDropFromUnitPerLvl: 130
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 2, y: 4}
+    AllUnitsOnLevel: 25
+    FriendlySpawnCooldown: 6
+    EnemySpawnCooldown: 4.5
+    UnitLvl: 1e000000280000001e000000000000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 000000000100000002000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 300
+    CurrencyDropFromUnitPerLvl: 250
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 2, y: 4}
+    AllUnitsOnLevel: 35
+    FriendlySpawnCooldown: 6
+    EnemySpawnCooldown: 4.5
+    UnitLvl: 140000001400000028000000140000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 00000000010000000200000003000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 700
+    CurrencyDropFromUnitPerLvl: 700
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 39
+    FriendlySpawnCooldown: 6
+    EnemySpawnCooldown: 4.5
+    UnitLvl: 0a0000001400000032000000140000000000000000000000000000000000000000000000
+    NumberOfFilledSliders: 00000000010000000200000003000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 600
+    CurrencyDropFromUnitPerLvl: 340
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 43
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 0a0000001e00000014000000140000001400000000000000000000000000000000000000
+    NumberOfFilledSliders: 0000000001000000020000000300000004000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 650
+    CurrencyDropFromUnitPerLvl: 680
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 46
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 0a0000000a0000001e000000190000001900000000000000000000000000000000000000
+    NumberOfFilledSliders: 0000000001000000020000000300000004000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 700
+    CurrencyDropFromUnitPerLvl: 850
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 46
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 0a0000000a00000014000000280000001400000000000000000000000000000000000000
+    NumberOfFilledSliders: 0000000001000000020000000300000004000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 750
+    CurrencyDropFromUnitPerLvl: 1000
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 46
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 000000000a0000001e0000001e0000001e00000000000000000000000000000000000000
+    NumberOfFilledSliders: 01000000020000000300000004000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 1700
+    CurrencyDropFromUnitPerLvl: 2100
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 50
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 000000000a000000140000001e0000001e0000000a000000000000000000000000000000
+    NumberOfFilledSliders: 0100000002000000030000000400000005000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 12700
+    CurrencyDropFromUnitPerLvl: 4600
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 52
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 00000000000000001e000000190000001900000014000000000000000000000000000000
+    NumberOfFilledSliders: 02000000030000000400000005000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 21000
+    CurrencyDropFromUnitPerLvl: 29000
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 54
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 00000000000000000a000000140000001e0000001e0000000a0000000000000000000000
+    NumberOfFilledSliders: 0200000003000000040000000500000006000000
+  - GameGridSize: {x: 3, y: 12}
+    CurrencyValuePerLevel: 66000
+    CurrencyDropFromUnitPerLvl: 66000
+    MinMaxPercentCurrencyDroppedFromUnit: {x: 1, y: 3}
+    AllUnitsOnLevel: 56
+    FriendlySpawnCooldown: 5
+    EnemySpawnCooldown: 5.5
+    UnitLvl: 00000000000000000a000000140000001e00000014000000140000000000000000000000
+    NumberOfFilledSliders: 0200000003000000040000000500000006000000

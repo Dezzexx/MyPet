@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: d30829b3e08145e47a00b440bc29b0f2
+  - enabled: 1
+    path: Assets/Scenes/Scene1.unity
+    guid: 0be73cfc3b937524eb52e0cf5d9b2345
+  - enabled: 1
+    path: Assets/Scenes/Scene2.unity
+    guid: 800e28d3dd046924b9e507bf97961be2
+  - enabled: 1
+    path: Assets/Scenes/Scene3.unity
+    guid: d7f7ef274c5a0504ab5d1abad1bb85e9
+  - enabled: 1
+    path: Assets/Scenes/Scene4.unity
+    guid: 2d8bab7dd2dd2744b88a2a5d9a0a3f48
+  - enabled: 1
+    path: Assets/Scenes/Scene5.unity
+    guid: 643baca483ec51944aac720adb5ecb8c
+  - enabled: 1
+    path: Assets/Scenes/Scene6.unity
+    guid: dd9d5c91f30b3664d8506df43db3133c
+  - enabled: 1
+    path: Assets/Scenes/Scene7.unity
+    guid: 31e53a3cba3146b49aa04c0d6246cb99
+  - enabled: 1
+    path: Assets/Scenes/Scene8.unity
+    guid: 875085158563a3e4dbbf164d48513905
+  - enabled: 1
+    path: Assets/Scenes/Scene9.unity
+    guid: 0534286923da4444199d03ac0c341e1b
+  - enabled: 1
+    path: Assets/Scenes/Scene10.unity
+    guid: 77e539e1c248fdb4d8698106b4dd988f
+  - enabled: 1
+    path: Assets/Scenes/Scene11.unity
+    guid: e9936018fe7ff884b900f95d5de91159
+  - enabled: 1
+    path: Assets/Scenes/Scene12.unity
+    guid: 7b6894fda6ac86d4b9578590a509483e
+  - enabled: 1
+    path: Assets/Scenes/Scene13.unity
+    guid: 3f356ae4d3054f14b98b519142800fd9
+  - enabled: 1
+    path: Assets/Scenes/Scene14.unity
+    guid: 85c718087178b694dbf0115f93c55ba9
+  - enabled: 1
+    path: Assets/Scenes/Scene15.unity
+    guid: 098cc7f4aaef79f4694c7e6496fdb2f4
+  m_configObjects:
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 365e23e6546909644bbf459a0f752777,
+      type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 6b75a8cc0245e7349952c9517976bde9, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
+      guid: 272bd070cff824443b8d3f5c09499267, type: 2}
