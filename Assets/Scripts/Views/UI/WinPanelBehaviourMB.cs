@@ -14,12 +14,9 @@ public class WinPanelBehaviourMB : MonoBehaviour
     private EcsWorld _world;
     private GameState _state;
     private EcsPool<ClickEvent> _clickPool;
-    private EcsPool<TutorialEvent> _tutorialEventPool;
-    private EcsPool<TutorialComponent> _tutorialPool;
 
     [SerializeField] private Transform _target;
-    [SerializeField] private Transform _holderWin, _bonusPanel;
-    [SerializeField] private Text _gaindedValue, _bonusValue;
+    [SerializeField] private Transform _holderWin;
     
 
     public void Init(EcsWorld world, GameState state)
@@ -27,8 +24,6 @@ public class WinPanelBehaviourMB : MonoBehaviour
         _world = world;
         _state = state;
         _clickPool = _world.GetPool<ClickEvent>();
-        _tutorialEventPool = _world.GetPool<TutorialEvent>();
-        _tutorialPool = _world.GetPool<TutorialComponent>();
     }
     #endregion
 
@@ -68,18 +63,5 @@ public class WinPanelBehaviourMB : MonoBehaviour
     public Transform GetHolderWin()
     {
         return _holderWin;
-    }
-    public Transform GetBonusPanelWin()
-    {
-        return _bonusPanel;
-    }
-
-    public Text GetGaindedValueText()
-    {
-        return _gaindedValue;
-    } 
-    public Text GetBonusValueText()
-    {
-        return _bonusValue;
     }
 }

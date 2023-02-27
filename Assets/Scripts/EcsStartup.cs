@@ -27,7 +27,6 @@ namespace Client
         public GameConfig GameConfig;
         public PlayerConfig PlayerConfig;
         public InterfaceConfig InterfaceConfig;
-        public LevelsConfig LevelsConfig;
 #endregion
 
         void Start () 
@@ -46,51 +45,43 @@ namespace Client
             _loseSystems = new EcsSystems(World, _gameState);
 
             _initSystems
-                // .Add(new LevelControllerInit())
-                .Add(new InputInit())
+                // .Add(new InputInit())
                 .Add(new InitInterface())
                 .Add(new InitSounds())
                 .Add(new InitPools())
                 .Add(new VibrationInit())
                 
                 .Add(new InitCamera())
-            //.Add(new UnlockItemsInit())
-
             ;
 
-            _beforePlaySystems               
-                .Add(new CreditsSystem())
+            _beforePlaySystems  
+                // .Add(new CreditsSystem())
                 .Add(new SoundSystem())
-                .Add(new VibrationSystem())
                 .Add(new InputSystem())
+                .Add(new VibrationSystem())
 
-                .Add(new DamageSystem())
-
-                .Add(new CreateEffectEventSystem())
+                .Add(new CreateEffectEventSystem())         
             ;
 
             _playSystems
                 .Add(new SoundSystem())
-                .Add(new VibrationSystem())  
-                .Add(new CreditsSystem())
-                
-                .Add(new CooldownSystem())
-
+                .Add(new VibrationSystem())
+                // .Add(new CreditsSystem())
                 .Add(new WinCheckSystem())
-                .Add(new UnitAnimationSystem())
-
                 .Add(new LoseCheckSystem())
+
+                .Add(new GamePauseSystem())
             ;
 
             _winSystems
                 .Add(new WinSystem())
-                .Add(new CreditsSystem())
+                // .Add(new CreditsSystem())
                 .Add(new SoundSystem())
             ;
 
             _loseSystems
                 .Add(new LoseSystem())
-                .Add(new CreditsSystem())
+                // .Add(new CreditsSystem())
                 .Add(new SoundSystem())
             ;
 

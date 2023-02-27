@@ -1,6 +1,5 @@
 namespace Client {
-    struct InputComponent 
-    {
-        
+    struct InputComponent {
+        // add your data here.
     }
 }

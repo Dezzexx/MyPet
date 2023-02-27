@@ -14,7 +14,7 @@ namespace Client
         readonly EcsPoolInject<AudioSourceComponent> _sourcePool = default;
         readonly EcsPoolInject<SoundEvent> _soundPool = default;
         readonly EcsPoolInject<VibrationEvent> _vibrationPool = default;
-        readonly EcsPoolInject<UnitAudioSource> _unitSourcePool = default;
+        readonly EcsPoolInject<TargetAudioSource> _targetAudioSourcePool = default;
 
         public void Run(EcsSystems systems)
         {
@@ -39,26 +39,6 @@ namespace Client
                     case SoundEvent.SoundValue.FailClick:
                         sourceComp.UIAudioSource.PlayOneShot(soundConfig.FailClickSound);
                         LightVibration();
-                        break;
-
-                    case SoundEvent.SoundValue.EnemySoldierShoot:
-                        PlayEventOneShot(entity, _state.Value.SoundConfig.EnemySoldierShoot);
-                        break;
-
-                    case SoundEvent.SoundValue.EnemyBomberShoot:
-                        PlayEventOneShot(entity, _state.Value.SoundConfig.EnemyBomberShoot);
-                        break;
-
-                    case SoundEvent.SoundValue.EnemySniperShoot:
-                        PlayEventOneShot(entity, _state.Value.SoundConfig.EnemySniperShoot);
-                        break;
-
-                    case SoundEvent.SoundValue.EnemyHeliShoot:
-                        PlayEventOneShot(entity, _state.Value.SoundConfig.EnemyHeliShoot);
-                        break;
-
-                    case SoundEvent.SoundValue.EnemyTankShoot:
-                        PlayEventOneShot(entity, _state.Value.SoundConfig.EnemyTankShoot);
                         break;
 
                     case SoundEvent.SoundValue.EnableEngine:
@@ -93,20 +73,20 @@ namespace Client
 
         private void PlaySound(int entity)
         {
-            ref var sourceComp = ref _unitSourcePool.Value.Get(entity);
+            ref var sourceComp = ref _targetAudioSourcePool.Value.Get(entity);
             sourceComp.ConstantSource.pitch = Random.Range(0.9f, 1.1f);
             sourceComp.ConstantSource.Play();
         }
         private void PlayEventOneShot(int entity, AudioClip sound)
         {
-            ref var sourceComp = ref _unitSourcePool.Value.Get(entity);
+            ref var sourceComp = ref _targetAudioSourcePool.Value.Get(entity);
             sourceComp.EventSource.pitch = Random.Range(0.9f, 1.1f);
             sourceComp.EventSource.PlayOneShot(sound);
         }
 
         private void StopSound(int entity)
         {
-            ref var sourceComp = ref _unitSourcePool.Value.Get(entity);
+            ref var sourceComp = ref _targetAudioSourcePool.Value.Get(entity);
             sourceComp.ConstantSource.Stop();
         }
 

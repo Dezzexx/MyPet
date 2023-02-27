@@ -1,91 +1,80 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Leopotam.EcsLite;
 using Leopotam.EcsLite.Di;
 using UnityEngine.EventSystems;
-using UnityEngine.InputSystem.EnhancedTouch;
 using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
 using InputTouchPhase = UnityEngine.InputSystem.TouchPhase;
 
-namespace Client
-{
-    sealed class InputSystem : IEcsRunSystem
-    {
+namespace Client {
+    sealed class InputSystem : IEcsRunSystem {
         readonly EcsSharedInject<GameState> _state = default;
         readonly EcsFilterInject<Inc<InputComponent>, Exc<DisableInputComponent>> filter = default;
-        readonly EcsPoolInject<TouchComponent> touchPool = default;
-        readonly EcsSharedInject<GameState> gameState = default;
-        readonly EcsPoolInject<InterfaceComponent> _interfacePool = default;
-        public void Destroy(EcsSystems systems)
-        {
-            EnhancedTouchSupport.Disable();
-            TouchSimulation.Disable();
-        }
+        readonly EcsPoolInject<TouchComponent> _touchPool = default;
+        readonly EcsPoolInject<InputComponent> _inputPool = default;
 
-        public void Run(EcsSystems systems)
-        {
-            foreach (int entity in filter.Value)
-            {
-                if (Touch.activeTouches.Count == 0) continue;
+        private int _touchEntity = -1; 
+        private Vector2 _initialPosition;
+        private Vector2 _currentPosition;
 
-                var activeTouch = Touch.activeTouches[0];
-                var phase = activeTouch.phase;
+        public void Run(EcsSystems systems) {
+            foreach (int entity in filter.Value) {
+                if (Touch.activeTouches.Count is 0) continue;
 
-                ref var interfaceComp = ref _interfacePool.Value.Get(_state.Value.InterfaceEntity);
-                interfaceComp.PointerEventData = new PointerEventData(interfaceComp.EventSystem);
-
-                var ray = Camera.main.ScreenPointToRay(activeTouch.screenPosition);
                 if (!EventSystem.current.IsPointerOverGameObject())
                 {
-                    if (phase == InputTouchPhase.Began)
-                    {
-                        if (!touchPool.Value.Has(entity))
-                        {
-                            touchPool.Value.Add(entity);
-                        }
-                        ref var touch = ref touchPool.Value.Get(entity);
-                        touch.Phase = TouchPhase.Began;
-                        touch.Direction = Vector3.zero;
-                        touch.Position = activeTouch.screenPosition;
-                        touch.InitialPosition = touch.Position;
+                    _touchEntity = entity;
 
-                        continue;
-                    }
-                }
+                    var activeTouch = Touch.activeTouches[0];
+                    var phase = activeTouch.phase;
 
-                if (phase == InputTouchPhase.Ended || phase == InputTouchPhase.Canceled)
-                {
-                    if (!touchPool.Value.Has(entity))
-                    {
-                        touchPool.Value.Add(entity);
-                    }
-                    ref var touch = ref touchPool.Value.Get(entity);
-                    touch.Phase = TouchPhase.Ended;
-                    touch.Direction = Vector3.zero;
-                    touch.Position = activeTouch.screenPosition;
-                    continue;
-                }
-                if (phase == InputTouchPhase.Moved)
-                {
-
-                    if (!touchPool.Value.Has(entity)) touchPool.Value.Add(entity);
-                    ref var touch = ref touchPool.Value.Get(entity);
-
-                    touch.Phase = TouchPhase.Moved;
-                    touch.Direction = activeTouch.screenPosition - touch.InitialPosition;
-                    touch.Position = activeTouch.screenPosition;
-
+                    _currentPosition = activeTouch.screenPosition;
                     
+                    switch (phase)
+                    {
+                        case InputTouchPhase.Began:
+                            if(!_touchPool.Value.Has(_touchEntity)) _touchPool.Value.Add(_touchEntity);
+
+                            TouchCompFilling(TouchPhase.Began, Vector3.zero);
+                            break;
+
+                        case InputTouchPhase.Moved:
+                            var direction = _currentPosition - _initialPosition;
+
+                            TouchCompFilling(TouchPhase.Moved, direction);
+                            break;
+
+                        case InputTouchPhase.Stationary:
+                            TouchCompFilling(TouchPhase.Stationary, Vector3.zero);
+                            break;
+
+                        case InputTouchPhase.Ended:
+                            TouchCompFilling(TouchPhase.Ended, Vector3.zero);
+
+                            if(_touchPool.Value.Has(_touchEntity)) _touchPool.Value.Del(_touchEntity);
+                            break;
+                        
+                        case InputTouchPhase.Canceled:
+                            TouchCompFilling(TouchPhase.Canceled, Vector3.zero);
+
+                            if(_touchPool.Value.Has(_touchEntity)) _touchPool.Value.Del(_touchEntity);
+                            break;
+
+                        default:
+                            break;
+                    }
                 }
-                else if (phase == InputTouchPhase.Stationary)
-                {
-                    if (!touchPool.Value.Has(entity)) touchPool.Value.Add(entity);
-                    ref var touch = ref touchPool.Value.Get(entity);
-                    touch.Phase = TouchPhase.Stationary;
-                    touch.Direction = Vector3.zero;
-                    touch.Position = activeTouch.screenPosition;
-                }
+            }
+        }
+
+        private void TouchCompFilling(TouchPhase touchPhase, Vector3 direction) {
+            ref var touch = ref _touchPool.Value.Get(_touchEntity);
+            touch.Phase = touchPhase;
+            touch.Direction = direction;
+            touch.Position = _currentPosition;
+
+            if (touchPhase is TouchPhase.Began) {
+                touch.InitialPosition = _currentPosition;
+                _initialPosition = _currentPosition;
             }
         }
     }

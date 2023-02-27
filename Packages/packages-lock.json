@@ -7,6 +7,28 @@
       "dependencies": {},
       "hash": "b43e40508b167d143330d8b9eff0d5c9965cdf3c"
     },
+    "com.dezzex.input-system-leoecslite": {
+      "version": "http://git.zakigames.com/zakiroot/inputpackage.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.leopotam.ecslite": "2022.6.22",
+        "com.leopotam.ecslite.di": "2022.3.22",
+        "com.unity.inputsystem": "1.5.0"
+      },
+      "hash": "593e71e008a8a6929a65b48ae14c610f829eb05a"
+    },
+    "com.dezzex.vibration": {
+      "version": "http://git.zakigames.com/zakiroot/vibropackage.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.leopotam.ecslite": "2022.6.22",
+        "com.leopotam.ecslite.di": "2022.3.22",
+        "com.unity.inputsystem": "1.5.0"
+      },
+      "hash": "6bd557c554a4275345323868a157084301eb3db6"
+    },
     "com.guciodevs.simple-min-max-slider": {
       "version": "https://github.com/Adamcbrz/SimpleMinMaxSlider.git#upm",
       "depth": 0,
@@ -41,6 +63,13 @@
       "source": "git",
       "dependencies": {},
       "hash": "31b0df802def4f8995b7c9421551e6eb3fdab99e"
+    },
+    "com.tayx.graphy": {
+      "version": "https://github.com/Tayx94/graphy.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "b225d122912a17eb527af8604e74b34284fe7249"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
@@ -137,7 +166,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.inputsystem": {
-      "version": "1.4.1",
+      "version": "1.5.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {

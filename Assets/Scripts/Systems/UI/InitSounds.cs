@@ -20,16 +20,16 @@ namespace Client
             audioComp.AudioBehaviourMB = audioBehaviorGO.GetComponent<AudioBehaviourMB>();
             
             var UIAudioSourceGO = GameObject.FindGameObjectWithTag("UIAudioSource");
-            audioComp.UIAudioSource = UIAudioSourceGO.GetComponent<AudioSource>();
+            audioComp.UIAudioSource = UIAudioSourceGO.GetComponent<UnityEngine.AudioSource>();
 
             var playerAudioSourceGO = GameObject.FindGameObjectWithTag("PlayerAudioSource");
-            audioComp.PlayerAudioSource = playerAudioSourceGO.GetComponent<AudioSource>();
+            audioComp.PlayerAudioSource = playerAudioSourceGO.GetComponent<UnityEngine.AudioSource>();
 
             var enemyAudioSourceGO = GameObject.FindGameObjectWithTag("EnemyAudioSource");
-            audioComp.EnemyAudioSource = enemyAudioSourceGO.GetComponent<AudioSource>();
+            audioComp.EnemyAudioSource = enemyAudioSourceGO.GetComponent<UnityEngine.AudioSource>();
 
             var environmentAudioSourceGO = GameObject.FindGameObjectWithTag("EnvironmentAudioSource");
-            audioComp.EnvironmentAudioSource = environmentAudioSourceGO.GetComponent<AudioSource>();
+            audioComp.EnvironmentAudioSource = environmentAudioSourceGO.GetComponent<UnityEngine.AudioSource>();
 
             
             if(_state.Value.Sounds)

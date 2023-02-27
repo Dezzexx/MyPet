@@ -73,7 +73,7 @@ public class SettingsPanelBehaviourMB : MonoBehaviour
         public void MoveSettingsPanel()
         {
             PlayClickSound();
-            //LightVibration();            
+            LightVibration();            
             if(!_wasClicked)
             {
                 _thisPanel.DOAnchorPosY(_activePos.y, _speed, false).SetUpdate(true);
@@ -91,7 +91,7 @@ public class SettingsPanelBehaviourMB : MonoBehaviour
     public void ChangeVibration()
         {
             PlayClickSound();
-            //LightVibration();
+            LightVibration();
             switch (_state.Vibration)
             {
                 case true:
@@ -108,7 +108,7 @@ public class SettingsPanelBehaviourMB : MonoBehaviour
         public void ChangeMusic()
         {
             PlayClickSound();
-            //LightVibration();
+            LightVibration();
             switch (_state.Music)
             {
                 case true:
@@ -126,7 +126,7 @@ public class SettingsPanelBehaviourMB : MonoBehaviour
         public void ChangeSound()
         {
             PlayClickSound();
-            //LightVibration();
+            LightVibration();
             switch (_state.Sounds)
             {
                 case true:

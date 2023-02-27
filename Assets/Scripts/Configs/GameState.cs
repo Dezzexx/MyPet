@@ -20,14 +20,6 @@ namespace Client
         public EcsWorld EcsWorld;
 
         public GameMode GameMode;
-        public LayerMask
-            FriendlyMask,
-            EnemyMask,
-            FriendlyAndEnemyMask,
-            IgnoreRaycastMask,
-            FriendlyBaseMask,
-            GridCellMask,
-            RideMask;
 
 #region Input;
         public GraphicRaycaster Raycaster;
@@ -38,7 +30,6 @@ namespace Client
         public SoundConfig SoundConfig;
         public GameConfig GameConfig;
         public PlayerConfig PlayerConfig;
-        public LevelsConfig LevelsConfig;
         public InterfaceConfig InterfaceConfig;
         #endregion
 
@@ -50,22 +41,25 @@ namespace Client
         public bool Vibration = true;
 
         public int PlayerResourceValue;
-        public int SceneNumber, CurrentMaxBaseLVL = 1;
+        public int SceneNumber;
 
 #region entity            
         public int LevelControllerEntity;
         public int InterfaceEntity;
-        public int InputEntity;             // entity инпута
-        public int SoundsEntity;            // entity звука
+        public int InputEntity;   
+        public int SoundsEntity;          
         public int VibrationEntity;                 
         public int CameraEntity;
         public int GridEntity;
         public int TutorialEntity;
         public const int NULL_ENTITY = -1;
+#endregion
 
-        #endregion
+#region Other
         public int TutorialStage;
-        public int LevelProgressIndex;  //индекс уровня, если уровни пошли по 2 кругу
+        public int LevelProgressIndex;
+#endregion
+
         private GameState(in EcsStartup ecsStartup)
         {
             EcsWorld = ecsStartup.World;
@@ -73,7 +67,6 @@ namespace Client
             SoundConfig = ecsStartup.SoundConfig;
             GameConfig = ecsStartup.GameConfig;
             PlayerConfig = ecsStartup.PlayerConfig;
-            LevelsConfig = ecsStartup.LevelsConfig;
             InterfaceConfig = ecsStartup.InterfaceConfig;
 
             Load();
@@ -113,10 +106,7 @@ namespace Client
             TutorialStage = data.TutorialStage;
             LevelProgressIndex = data.LevelProgressIndex;
 
-            //MinesCount = data.MinesCount < 0? GameConfig.MaximumBarricades: data.MinesCount;
-            //MinesCoolDown = data.MinesCoolDown;
-            //BarricadesCount = data.BarricadesCount < 0 ? GameConfig.MaximumMines : data.BarricadesCount;
-            //BarricadesCooldown = data.BarricadesCooldown;
+            Debug.Log("Load");
         }
 
         public void Save()

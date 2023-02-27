@@ -1,5 +1,3 @@
-using Lofelt.NiceVibrations;
-
 namespace Client
 {
     struct VibrationEvent

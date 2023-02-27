@@ -3,33 +3,29 @@ using Leopotam.EcsLite.Di;
 using UnityEngine;
 using Lofelt.NiceVibrations;
 
-namespace Client
-{
-    sealed class VibrationSystem : IEcsRunSystem
-    {
-        readonly EcsSharedInject<GameState> _state = default;
+namespace Client {
+    sealed class VibrationSystem : IEcsRunSystem {
         readonly EcsFilterInject<Inc<VibrationEvent>> _filter = default;
+        readonly EcsPoolInject<VibrationEvent> _vibroEvent = default;
+
+        readonly EcsSharedInject<GameState> _state = default;
 
         private float _coolDown = 0.5f;
         private float _timer = 0;
 
-        public void Run(EcsSystems systems)
-        {
+        public void Run(EcsSystems systems) {
             _timer -= Time.deltaTime;
 
-            foreach (var entity in _filter.Value)
-            {
-                if (_state.Value.Vibration)
-                {
-                    if(_timer > 0)
-                    {
-                        _filter.Pools.Inc1.Del(entity);
+            foreach (var entity in _filter.Value) {
+                if (_state.Value.Vibration) {
+                    if(_timer > 0) {
+                        _vibroEvent.Value.Del(entity);
                         return;
                     }
 
                     _timer = _coolDown;
+                    ref var vibroComp = ref _vibroEvent.Value.Get(entity);
 
-                    ref var vibroComp = ref _filter.Pools.Inc1.Get(entity);
                     switch (vibroComp.Vibration)
                     {
                         case VibrationEvent.VibrationType.HeavyImpact:
@@ -61,7 +57,7 @@ namespace Client
                             break;
                     }
                 }
-                _filter.Pools.Inc1.Del(entity);
+                _vibroEvent.Value.Del(entity);
             }
         }
     }

@@ -13,10 +13,9 @@ namespace Client
         public void Init(EcsSystems systems)
         {
             var world = systems.GetWorld();
-            var gameState = _state.Value;
-            var entity = world.NewEntity();
-            gameState.VibrationEntity = entity;
-            ref var vibroComp = ref _vibroPool.Value.Add(entity);
+            var vibroEntity = world.NewEntity();
+            _state.Value.VibrationEntity = vibroEntity;
+            _vibroPool.Value.Add(vibroEntity);
         }
     }
 }

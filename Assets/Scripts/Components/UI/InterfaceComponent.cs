@@ -14,7 +14,6 @@ namespace Client
         public TutorialPanelBehaviourMB TutorialPanelBehaviour;
         public GeneralPanelBehaviourMB GenaralPanelBehaviourMB;
         public HealthbarMB HealthbarBehaviour;
-        public UpgradePanelMB UpgradePanelMB;
         public GraphicRaycaster GraphicRaycaster;
         public PointerEventData PointerEventData;
         public EventSystem EventSystem;

@@ -19,7 +19,7 @@ namespace Client
 
         private int _eventEntity = GameState.NULL_ENTITY;
 
-        public AudioSource AudioSource;
+        public UnityEngine.AudioSource AudioSource;
 
         public void Run (EcsSystems systems)
         {

@@ -12,8 +12,7 @@ namespace Client
         readonly EcsSharedInject<GameState> _state = default;
         readonly EcsWorldInject _world = default;
         readonly EcsPoolInject<InterfaceComponent> _interfacePool = default;
-        float SliderValue = 0f;
-
+        
         public void Init(EcsSystems systems)
         {
             var entity = _world.Value.NewEntity();
@@ -61,23 +60,8 @@ namespace Client
             //методы для старта
             interfaceComp.CanvasBehaviour.OpenBeforePlayPanels();
 
-            interfaceComp.GraphicRaycaster = GameObject.FindObjectOfType<GraphicRaycaster>();
-            interfaceComp.EventSystem = GameObject.FindObjectOfType<EventSystem>();
-
-            interfaceComp.CanvasBehaviour.LevelNumberText.text = "Level "+_state.Value.LevelProgressIndex.ToString();
-
-
-            int length = interfaceComp.CanvasBehaviour.SliderChunks.Length; // = 8 int
-            SliderValue = (_state.Value.LevelProgressIndex % length);
-            Debug.Log("SlideValue = "  + SliderValue);
-            for (int i = 0; i < length; i++)
-            {
-                var chunk = interfaceComp.CanvasBehaviour.SliderChunks[i];
-
-                chunk.color =
-                    i >= SliderValue ? Color.white / 2 : Color.white;
-                //Debug.Log("SliderChunks.Length: " + length + "; slider - " + SliderValue);
-            }
+            _state.Value.Raycaster = GameObject.FindObjectOfType<GraphicRaycaster>();
+            _state.Value.EventSystem = GameObject.FindObjectOfType<EventSystem>();
         }
     }
 }

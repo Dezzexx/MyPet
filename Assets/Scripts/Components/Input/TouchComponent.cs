@@ -1,7 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem.EnhancedTouch;
-using Touch = UnityEngine.InputSystem.EnhancedTouch.Touch;
-using InputTouchPhase = UnityEngine.InputSystem.TouchPhase;
 
 namespace Client {
     struct TouchComponent {

@@ -17,6 +17,6 @@ namespace Client
             EnableEngine,
         }
         public SoundValue Sound;
-        public AudioSource EventSource;
+        public UnityEngine.AudioSource EventSource;
     }
 }

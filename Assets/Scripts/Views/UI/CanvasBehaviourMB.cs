@@ -16,7 +16,6 @@ public class CanvasBehaviourMB : MonoBehaviour
     private GameState _state;
     private EcsPool<ClickEvent> _clickPool;
     private EcsPool<InterfaceComponent> _interfacePool = default;
-    private EcsPool<UpdateUIEvent> _updateUIPool = default;
 
     public void Init(EcsWorld world, GameState state)
     {
@@ -25,33 +24,15 @@ public class CanvasBehaviourMB : MonoBehaviour
         _state = state;
         _clickPool = _world.GetPool<ClickEvent>();
         _interfacePool = _world.GetPool<InterfaceComponent>();
-        _updateUIPool = _world.GetPool<UpdateUIEvent>();
-        GetAllButtons();
         UpdateCanvas();
     }
     #endregion
     public Canvas MainCanvas;
     public GameObject InGamePanel;
-    public GameObject WinPanel;
-    public GameObject LosePanel;
-    public GameObject StorePanel;
-    public GameObject SettingsPanel;
     public GameObject GeneralPanel;
-    public GameObject UpgradePanel;
-    public List<Button> AllButtons = new();
-    //public GameObject CarsBuyPanel;
-    public GameObject BiomSlider;
-    public Text LevelNumberText;
-    public Image NextBiomImage;
-    public Color OrangeColor;
-    public Image[] SliderChunks; 
-
-    private int _cinemachinePOVCameraSpeedOff = 0;
-    private float _cinemachinePOVCameraSpeedOn = 0.1f;
 
     public void ReloadScene()
     {
-        //_state.WriteCooldowns(MinesMB.currentCoolDown, BarricadesMB.currentCoolDown);
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -106,11 +87,6 @@ public class CanvasBehaviourMB : MonoBehaviour
         GeneralPanel.SetActive(false);
     }
 
-    public void CloseUpgradePanel()
-    {
-        UpgradePanel.SetActive(false);
-    }
-
     public void DisableAllChilds(Transform unitTransform)
     {
         foreach (Transform child in unitTransform)
@@ -122,35 +98,6 @@ public class CanvasBehaviourMB : MonoBehaviour
     public void PlayClickSound()
     {
         _clickPool.Add(_world.NewEntity());
-    }
-    public void DisableAllButtonExceptFor(Button selectedButton)
-    {
-        DisableAllButtons();
-        selectedButton.interactable = true;
-    }
-
-    private void GetAllButtons()
-    {
-        foreach (var button in transform.GetComponentsInChildren<Button>(true))
-        {
-            AllButtons.Add(button);
-        }
-    }
-
-    public void DisableAllButtons()
-    {
-        foreach (var button in AllButtons)
-        {
-            button.interactable = false;
-        }
-    }
-    public void EnableAllButtons()
-    {
-        foreach (var button in AllButtons)
-        {
-            button.interactable = true;
-        }
-        _updateUIPool.Add(_world.NewEntity());
     }
 
     public void UpdateCanvas()
